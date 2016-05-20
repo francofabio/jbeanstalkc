@@ -5,7 +5,7 @@
 	<artifactId>jbeanstalkc</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>jbeanstalkd</name>
+	<name>jbeanstalkc</name>
 
 	<dependencies>
 		<dependency>
@@ -54,8 +54,8 @@
 				<configuration>
 					<instrumentation>
 						<excludes>
-							<exclude>br/com/binarti/jbeanstalkd/**/*Test.class</exclude>
-							<exclude>br/com/binarti/jbeanstalkd/**/*Exception.class</exclude>
+							<exclude>br/com/binarti/jbeanstalkc/**/*Test.class</exclude>
+							<exclude>br/com/binarti/jbeanstalkc/**/*Exception.class</exclude>
 						</excludes>
 					</instrumentation>
 					<check>
@@ -68,7 +68,7 @@
 						<packageBranchRate>80</packageBranchRate>
 						<regexes>
 							<regex>
-								<pattern>br.com.binarti.jbeanstalkd.BeanstalkClientException</pattern>
+								<pattern>br.com.binarti.jbeanstalkc.BeanstalkClientException</pattern>
 								<branchRate>50</branchRate>
 								<lineRate>50</lineRate>
 							</regex>
