@@ -1,6 +1,12 @@
 package br.com.binarti.jbeanstalkc;
 
-public interface BeanstalkProducer {
+/**
+ * The interface to available operations for producers to use beanstalkd service
+ * 
+ * @author francofabio
+ *
+ */
+public interface BeanstalkProducer extends BeanstalkClientConnect {
 
 	/**
 	 * Change the currently tube to a give tube. The "use" command is for producers. <br>

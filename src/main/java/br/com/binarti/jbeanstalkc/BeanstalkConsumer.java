@@ -2,7 +2,13 @@ package br.com.binarti.jbeanstalkc;
 
 import java.util.List;
 
-public interface BeanstalkConsumer {
+/**
+ * The interface to available operations for consumers to use beanstalkd service
+ * 
+ * @author francofabio
+ *
+ */
+public interface BeanstalkConsumer extends BeanstalkClientConnect {
 
 	/**
 	 * When consumer (worker) wants to consume jobs from queue. Block current thread until a job is available.

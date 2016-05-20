@@ -26,7 +26,7 @@ public class BeanstalkClientFactory {
 	 * @return New instance of the beanstalk client
 	 */
 	public BeanstalkClient createClient() {
-		BeanstalkClient beanstalkClient = new BeanstalkClient(host, port);
+		BeanstalkClient beanstalkClient = new DefaultBeanstalkClient(host, port);
 		beanstalkClient.connect();
 		return beanstalkClient;
 	}

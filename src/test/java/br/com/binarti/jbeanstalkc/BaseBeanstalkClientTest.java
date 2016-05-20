@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 
 import br.com.binarti.jbeanstalkc.BeanstalkClient;
 import br.com.binarti.jbeanstalkc.BeanstalkJob;
@@ -17,9 +18,16 @@ public class BaseBeanstalkClientTest {
 	
 	protected BeanstalkClient beanstalkClient;
 	
+	protected static BeanstalkClientFactory factory;
+	
+	@BeforeClass
+	public static void init() {
+		factory = new BeanstalkClientFactory(HOST, PORT);
+	}
+	
 	@Before
 	public void connectBeanstalk() throws IOException {
-		beanstalkClient = new BeanstalkClient(HOST, PORT);
+		beanstalkClient = factory.createClient();
 		beanstalkClient.connect();
 	}
 	

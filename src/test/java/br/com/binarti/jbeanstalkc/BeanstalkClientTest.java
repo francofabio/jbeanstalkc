@@ -20,8 +20,9 @@ public class BeanstalkClientTest extends BaseBeanstalkClientTest {
 
 	@Test(expected=BeanstalkException.class)
 	public void shouldThrowExceptionIfNoConnectionInitialized() throws Exception {
-		BeanstalkClient client = new BeanstalkClient(HOST, PORT);
+		BeanstalkClient client = new DefaultBeanstalkClient(HOST, PORT);
 		client.serverStats();
+		client.close();
 	}
 	
 	@Test(expected=BeanstalkException.class)
@@ -32,10 +33,11 @@ public class BeanstalkClientTest extends BaseBeanstalkClientTest {
 	
 	@Test
 	public void shoudTestConnection() throws IOException {
-		BeanstalkClient beanstalkClient = new BeanstalkClient(HOST, PORT);
+		BeanstalkClient beanstalkClient = new DefaultBeanstalkClient(HOST, PORT);
 		assertFalse(beanstalkClient.isConnected());
 		beanstalkClient.connect();
 		assertTrue(beanstalkClient.isConnected());
+		beanstalkClient.close();
 	}
 	
 	@Test
