@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import br.com.binarti.jbeanstalkc.BeanstalkClientHelper;
 import br.com.binarti.jbeanstalkc.protocol.yaml.YAML;
 
@@ -15,6 +17,8 @@ import br.com.binarti.jbeanstalkc.protocol.yaml.YAML;
  */
 public class BeanstalkStats {
 	
+	private static final Logger logger = Logger.getLogger(BeanstalkStats.class);
+	
 	protected Map<String, String> data;
 	
 	{
@@ -23,6 +27,7 @@ public class BeanstalkStats {
 	
 	public BeanstalkStats(String yaml) {
 		fillFromYAML(yaml);
+		logger.debug("Stats data: " + data.toString());
 	}
 	
 	private void fillFromYAML(String yaml) {
