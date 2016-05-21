@@ -2,6 +2,7 @@ package br.com.binarti.jbeanstalkc.commands;
 
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandCode.DELETE;
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandReason.DELETED;
+import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandReason.NOT_FOUND;
 
 import java.net.Socket;
 
@@ -19,7 +20,7 @@ public class BeanstalkCommandDelete extends BeanstalkCommandInterface {
 		BeanstalkRequest command = new BeanstalkCommandDataBuilder(DELETE)
 				.addParam(jobId)
 				.build();
-		perform(command, DELETED);
+		perform(command, DELETED, NOT_FOUND);
 	}
 	
 }
