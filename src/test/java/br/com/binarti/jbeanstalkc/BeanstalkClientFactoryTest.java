@@ -14,15 +14,17 @@ import br.com.binarti.jbeanstalkc.BeanstalkConsumer;
 import br.com.binarti.jbeanstalkc.BeanstalkProducer;
 
 public class BeanstalkClientFactoryTest {
-
-	private static final String HOST = "localhost";
-	private static final int PORT = 11300;
 	
+	private static String BEANSTALKD_URL;
 	private static BeanstalkClientFactory factory;
 	
 	@BeforeClass
 	public static void init() {
-		factory = new BeanstalkClientFactory(HOST, PORT);
+		BEANSTALKD_URL = System.getProperty("jbeanstalkc.beanstalkd.url");
+		if (BEANSTALKD_URL == null) {
+			BEANSTALKD_URL = "beanstalkd://localhost:11300";
+		}
+		factory = new BeanstalkClientFactory(BEANSTALKD_URL);
 	}
 	
 	@Test

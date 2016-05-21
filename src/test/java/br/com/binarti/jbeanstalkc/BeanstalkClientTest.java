@@ -1,7 +1,6 @@
 package br.com.binarti.jbeanstalkc;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -11,8 +10,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import br.com.binarti.jbeanstalkc.BeanstalkClient;
-import br.com.binarti.jbeanstalkc.BeanstalkException;
 import br.com.binarti.jbeanstalkc.protocol.ServerStats;
 import br.com.binarti.jbeanstalkc.protocol.TubeStats;
 
@@ -20,7 +17,8 @@ public class BeanstalkClientTest extends BaseBeanstalkClientTest {
 
 	@Test(expected=BeanstalkException.class)
 	public void shouldThrowExceptionIfNoConnectionInitialized() throws Exception {
-		try (BeanstalkClient client = new DefaultBeanstalkClient(HOST, PORT)) {
+		try (BeanstalkClient client = factory.createClient()) {
+			client.close();
 			client.serverStats();
 		}
 	}
@@ -33,9 +31,7 @@ public class BeanstalkClientTest extends BaseBeanstalkClientTest {
 	
 	@Test
 	public void shoudTestConnection() throws IOException {
-		try (BeanstalkClient beanstalkClient = new DefaultBeanstalkClient(HOST, PORT)) {
-			assertFalse(beanstalkClient.isConnected());
-			beanstalkClient.connect();
+		try (BeanstalkClient beanstalkClient = factory.createClient()) {
 			assertTrue(beanstalkClient.isConnected());
 		}
 	}

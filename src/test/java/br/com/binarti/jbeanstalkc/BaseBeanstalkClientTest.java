@@ -13,16 +13,19 @@ import br.com.binarti.jbeanstalkc.protocol.TubeStats;
 public class BaseBeanstalkClientTest {
 
 	protected static final String JBEANSTALK_TUBE = "jbeanstalk";
-	protected static final String HOST = "localhost";
-	protected static final int PORT = 11300;
+	
+	protected static String BEANSTALKD_URL;
+	protected static BeanstalkClientFactory factory;
 	
 	protected BeanstalkClient beanstalkClient;
 	
-	protected static BeanstalkClientFactory factory;
-	
 	@BeforeClass
 	public static void init() {
-		factory = new BeanstalkClientFactory(HOST, PORT);
+		BEANSTALKD_URL = System.getProperty("jbeanstalkc.beanstalkd.url");
+		if (BEANSTALKD_URL == null) {
+			BEANSTALKD_URL = "beanstalkd://localhost:11300";
+		}
+		factory = new BeanstalkClientFactory(BEANSTALKD_URL);
 	}
 	
 	@Before

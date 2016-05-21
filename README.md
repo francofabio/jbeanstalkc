@@ -5,12 +5,22 @@ This project is intended to help developers to use the [beanstalkd](http://kr.gi
 
 See [beanstalkd protocol](https://github.com/kr/beanstalkd/blob/master/doc/protocol.txt) document for you better comprehension about beanstalkd operations.
 
-<small>Excuse me for my terrible English</small>
+<sub>Excuse me for my terrible English</sub>
 
 ## How to use
 To use this library, you need to install the package in your maven local repository:
 ```
-mvn install
+mvn clean install -Dmaven.test.skip=true
+```
+
+If you want to run unit tests, you need to install on your computer beanstalkd service. After, run this command:
+```
+mvn clean install
+```
+
+By default jbenastalkc connect to beanstalkd service on port 11300. If your beanstalkd service is running over other port, use the variable jbeanstalkc.beanstalkd.url to specify the host and port where server is running:
+```
+mvn clean install -Djbeanstalkc.beanstalkd.url=beanstalkd://beanstalk-server:15000
 ```
 
 And add this dependency in your pom.xml
@@ -57,6 +67,8 @@ The factory require the host and port to connect to beanstalkd service, look lik
 ```java
 import br.com.binarti.jbeanstalkc.BeanstalkClientFactory;
 ...
+BeanstalkClientFactory factory = new BeanstalkClientFactory("beanstalkd://localhost:11300");
+...or...
 BeanstalkClientFactory factory = new BeanstalkClientFactory("localhost", 11300);
 ```
 Each instance produced by this factory, is connected to beanstalkd service in host 'localhost' on port '11300'.
@@ -69,7 +81,7 @@ import br.com.binarti.jbeanstalkc.BeanstalkProducer;
 public class BeanstalkProducerTest {
 
   public static void main(String...args) {
-      BeanstalkClientFactory factory = new BeanstalkClientFactory("localhost", 11300);
+      BeanstalkClientFactory factory = new BeanstalkClientFactory("beanstalkd://localhost:11300");
         //Create producer instance to produce jobs in tube 'mytube'
         try (BeanstalkProducer producer = factory.createProducer("mytube")) {
           //Puts data in tube
@@ -89,7 +101,7 @@ import br.com.binarti.jbeanstalkc.BeanstalkJob;
 public class BeanstalkConsumerWorkerTest {
 
   public static void main(String...args) {
-      BeanstalkClientFactory factory = new BeanstalkClientFactory("localhost", 11300);
+      BeanstalkClientFactory factory = new BeanstalkClientFactory("beanstalkd://localhost:11300");
         //Create a consumer to consume jobs from tube 'mytube'
         try (BeanstalkConsumer consumer = factory.createConsumer("mytube")) {
           while (true) {
@@ -115,7 +127,7 @@ import br.com.binarti.jbeanstalkc.protocol.TubeStats;
 public class BeanstalkClientTest {
 
   public static void main(String...args) {
-      BeanstalkClientFactory factory = new BeanstalkClientFactory("localhost", 11300);
+      BeanstalkClientFactory factory = new BeanstalkClientFactory("beanstalkd://localhost:11300");
         try (BeanstalkClient beanstalkClient = factory.createClient()) {
           //Said to beanstalk to produce data in tube 'mytube'
           beanstalkClient.useTube("mytube");

@@ -13,12 +13,24 @@ public class BeanstalkClientFactory {
 	
 	/**
 	 * Create a new factory
-	 * @param host Address to beanstalkd server
+	 * @param host Host to beanstalkd server
 	 * @param port Port to beanstalkd server
 	 */
 	public BeanstalkClientFactory(String host, int port) {
 		this.host = host;
 		this.port = port;
+	}
+	
+	/**
+	 * Create a new factory using a beanstalkd URL.<br>
+	 * The beanstalkd URL should look like this:<br>
+	 * <strong>beanstalkd://host:port</strong>
+	 * @param url The beanstalkd URL
+	 */
+	public BeanstalkClientFactory(String url) {
+		BeanstalkdURL beanstalkdURL = new BeanstalkdURL(url);
+		this.host = beanstalkdURL.getHost();
+		this.port = beanstalkdURL.getPort();
 	}
 	
 	/**
