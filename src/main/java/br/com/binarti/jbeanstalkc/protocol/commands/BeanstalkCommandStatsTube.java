@@ -1,4 +1,4 @@
-package br.com.binarti.jbeanstalkc.commands;
+package br.com.binarti.jbeanstalkc.protocol.commands;
 
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandCode.STATS_TUBE;
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandReason.NOT_FOUND;

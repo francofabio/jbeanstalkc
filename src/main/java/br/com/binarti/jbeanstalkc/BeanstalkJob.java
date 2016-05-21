@@ -5,12 +5,12 @@ import static br.com.binarti.jbeanstalkc.BeanstalkClient.DEFAULT_PUT_PRIORITY;
 
 import java.net.Socket;
 
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandBury;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandDelete;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandRelease;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandStatsJob;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandTouch;
 import br.com.binarti.jbeanstalkc.protocol.JobStats;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandBury;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandDelete;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandRelease;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandStatsJob;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandTouch;
 
 public class BeanstalkJob {
 

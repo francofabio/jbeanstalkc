@@ -1,4 +1,4 @@
-package br.com.binarti.jbeanstalkc.commands;
+package br.com.binarti.jbeanstalkc.protocol.commands;
 
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandCode.WATCH;
 import static br.com.binarti.jbeanstalkc.protocol.BeanstalkCommandReason.WATCHING;

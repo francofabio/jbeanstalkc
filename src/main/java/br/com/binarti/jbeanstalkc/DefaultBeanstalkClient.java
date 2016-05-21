@@ -7,19 +7,19 @@ import java.net.Socket;
 import java.util.List;
 import java.util.Objects;
 
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandIgnore;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandListTubeUsed;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandListTubeWatched;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandListTubes;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandPeek;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandPut;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandReserve;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandStats;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandStatsTube;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandUse;
-import br.com.binarti.jbeanstalkc.commands.BeanstalkCommandWatch;
 import br.com.binarti.jbeanstalkc.protocol.ServerStats;
 import br.com.binarti.jbeanstalkc.protocol.TubeStats;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandIgnore;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandListTubeUsed;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandListTubeWatched;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandListTubes;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandPeek;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandPut;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandReserve;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandStats;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandStatsTube;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandUse;
+import br.com.binarti.jbeanstalkc.protocol.commands.BeanstalkCommandWatch;
 
 public class DefaultBeanstalkClient implements BeanstalkClient, BeanstalkProducer, BeanstalkConsumer {
 
