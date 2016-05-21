@@ -6,4 +6,4 @@ before_install:
   - sudo apt-get install -y beanstalkd
 before_script:
   - mkdir beanstalkd-data
-  - /usr/bin/beanstalkd -l 127.0.0.1 -p 11300& -b ./beanstalkd-data
+  - /usr/bin/beanstalkd -l 127.0.0.1 -p 11300 -b ./beanstalkd-data&
