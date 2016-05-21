@@ -27,36 +27,41 @@ public class BeanstalkClientFactoryTest {
 	
 	@Test
 	public void shoudCreateBeanstalkClient() {
-		BeanstalkClient beanstalkClient = factory.createClient();
-		assertTrue(beanstalkClient.isConnected());
+		try (BeanstalkClient beanstalkClient = factory.createClient()) {
+			assertTrue(beanstalkClient.isConnected());
+		}
 	}
 	
 	@Test
 	public void shouldCreateProducer() {
-		BeanstalkProducer producer = factory.createProducer();
-		assertEquals("default", producer.using());
+		try (BeanstalkProducer producer = factory.createProducer()) {
+			assertEquals("default", producer.using());
+		}
 	}
 	
 	@Test
 	public void shouldCreateProducerUsingTube() {
-		BeanstalkProducer producer = factory.createProducer("jbeanstalk");
-		assertEquals("jbeanstalk", producer.using());
+		try (BeanstalkProducer producer = factory.createProducer("jbeanstalk")) {
+			assertEquals("jbeanstalk", producer.using());
+		}
 	}
 	
 	@Test
 	public void shouldCreateConsumer() {
-		BeanstalkConsumer consumer = factory.createConsumer();
-		List<String> watching = consumer.watching();
-		assertEquals(1, watching.size());
-		assertTrue(watching.contains("default"));
+		try (BeanstalkConsumer consumer = factory.createConsumer()) {
+			List<String> watching = consumer.watching();
+			assertEquals(1, watching.size());
+			assertTrue(watching.contains("default"));
+		}
 	}
 	
 	@Test
 	public void shouldCreateConsumerUsingTubeToWatch() {
-		BeanstalkConsumer consumer = factory.createConsumer("jbeanstalk");
-		List<String> watching = consumer.watching();
-		assertEquals(1, watching.size());
-		assertTrue(watching.contains("jbeanstalk"));
+		try (BeanstalkConsumer consumer = factory.createConsumer("jbeanstalk")) {
+			List<String> watching = consumer.watching();
+			assertEquals(1, watching.size());
+			assertTrue(watching.contains("jbeanstalk"));
+		}
 	}
 	
 }

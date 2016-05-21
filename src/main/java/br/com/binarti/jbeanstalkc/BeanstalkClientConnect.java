@@ -1,6 +1,6 @@
 package br.com.binarti.jbeanstalkc;
 
-public interface BeanstalkClientConnect {
+public interface BeanstalkClientConnect extends AutoCloseable {
 
 	/**
 	 * Connect to beanstalkd service
