@@ -4,3 +4,5 @@ jdk:
   - oraclejdk8
 before_install:
   - sudo apt-get install -y beanstalkd
+script:
+  - /usr/bin/beanstalkd -l localhost -p 11300
