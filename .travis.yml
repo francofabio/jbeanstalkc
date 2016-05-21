@@ -2,3 +2,5 @@ language: java
 install: true
 jdk:
   - oraclejdk8
+before_install:
+  - sudo apt-get install -y beanstalkd
