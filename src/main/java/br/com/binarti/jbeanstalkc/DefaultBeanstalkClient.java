@@ -49,7 +49,9 @@ public class DefaultBeanstalkClient implements BeanstalkClient, BeanstalkProduce
 	@Override
 	public void connect() {
 		try {
-			socket = new Socket(host, port);
+			if (socket == null || !socket.isConnected()) {
+				socket = new Socket(host, port);
+			}
 		} catch (IOException e) {
 			throw new BeanstalkException(format("Unable to connect to server %s on port %s", host, port), e);
 		}
