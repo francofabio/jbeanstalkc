@@ -1,8 +1,8 @@
 # Simple beanstalkd client for Java
 
-This project is intended to help developers to use the [beanstalkd](http://kr.github.io/beanstalkd/) queue service for Java platform.<br>
+This project is intended to help developers to use the [beanstalkd](http://kr.github.io/beanstalkd/) queue service in Java platform.<br>
 
-See [beanstalkd protocol](https://github.com/kr/beanstalkd/blob/master/doc/protocol.txt) document for you better comprehension about beanstalkd operations.
+See [beanstalkd protocol](https://github.com/kr/beanstalkd/blob/master/doc/protocol.txt) document for your better comprehension about beanstalkd operations.
 
 <sub>Excuse me for my terrible English</sub>
 
@@ -17,7 +17,7 @@ If you want to run unit tests, you need to install on your computer beanstalkd s
 mvn clean install
 ```
 
-By default jbenastalkc connect to beanstalkd service on port 11300. If your beanstalkd service is running over other port, use the variable jbeanstalkc.beanstalkd.url to specify the host and port where server is running:
+By default, jbenastalkc connect to beanstalkd service on port 11300. If your beanstalkd service is running over other port, use the variable jbeanstalkc.beanstalkd.url to specify the host and port where server is running:
 ```
 mvn clean install -Djbeanstalkc.beanstalkd.url=beanstalkd://beanstalk-server:15000
 ```
@@ -116,7 +116,7 @@ public class BeanstalkConsumerWorkerTest {
 }
 ```
 
-#### Consumer
+#### Producer, consumer and admin
 ```java
 import br.com.binarti.jbeanstalkc.BeanstalkClientFactory;
 import br.com.binarti.jbeanstalkc.BeanstalkClient;
