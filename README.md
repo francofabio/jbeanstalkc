@@ -1,5 +1,4 @@
 # Simple beanstalkd client for Java
-[![Build Status](https://travis-ci.org/binarti/jbeanstalkc.svg?branch=master)](https://travis-ci.org/binarti/jbeanstalkc)
 
 This project is intended to help developers to use the [beanstalkd](http://kr.github.io/beanstalkd/) queue service for Java platform.<br>
 
